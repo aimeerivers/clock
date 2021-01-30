@@ -20,15 +20,15 @@ The colours map to a fully saturated colour wheel of hues of light, where 0 and 
 
 ![Colour wheel](colour-wheel.png)
 
-The opposite of red in the colour wheel of hues of light is cyan (`#00FFFF`) which is what we see at 50% through.
+The opposite of red in this colour wheel is cyan (`#00FFFF`) which is what we see at 50%.
 
-This means that at exactly 12:30:30 on the 15th June 2050 all the bars will be coloured exactly the same colour - cyan.
+This means that at precisely 12:30:30 on the 15th June 2050 all the bars will be coloured exactly the same colour - cyan.
 
 ![Cyan time](cyan-time.png)
 
 ## How does it know the date and time?
 
-The date and time are localised to you in your timezone, and are taken from your device.
+The date and time are localised to you, and are taken from your device. All the calculations are done locally on your device, which is why you won't see the same time as someone else in a different timezone.
 
 ## Why does it display the date and time differently?
 
