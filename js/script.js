@@ -7,32 +7,27 @@ const secondsElement = document.getElementById('seconds');
 const dateElement = document.getElementById('date');
 const timeElement = document.getElementById('time');
 
-var sweep = true;
+// don't update favicon on every tick, because it sometimes flashes when it's changed
+// every 50 ticks = every 5 seconds
+const faviconTicks = 50;
+
+// start counting from 2 away, because Firefox won't update the icon from the
+// one that loads with the page on the very first tick
+var i = faviconTicks - 2;
 
 function updateDateTime() {
-
   let date = new Date();
+  let monthDays = daysInMonth(date);
 
   dateElement.innerText = date.toLocaleDateString();
   timeElement.innerText = date.toLocaleTimeString();
 
-  let years = date.getFullYear();
-  let months = date.getMonth() + 1;
-  let days = date.getDate();
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let seconds = date.getSeconds();
-  
-  let monthDays = daysInMonth(date);
-  
-  if (sweep) {
-    seconds += date.getMilliseconds() / 1000;
-    minutes += seconds / 60;
-    hours += minutes / 60;
-    days += hours / 24;
-    months += days / monthDays;
-    years += months / 12;
-  }
+  let seconds = date.getSeconds() + date.getMilliseconds() / 1000;
+  let minutes = date.getMinutes() + seconds / 60;
+  let hours = date.getHours() + minutes / 60;
+  let days = date.getDate() + hours / 24;
+  let months = date.getMonth() + 1  + days / monthDays;
+  let years = date.getFullYear() + months / 12;
 
   let yearsColour = getColour(years.toString().substring(2) / 100);
   let monthsColour = getColour(months / 12);
@@ -48,11 +43,54 @@ function updateDateTime() {
   minutesElement.style.backgroundImage = `linear-gradient(170deg, ${minutesColour} , ${secondsColour})`;
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
   
-  if (sweep) {
-    setTimeout(updateDateTime, 100);
+  i++;
+  if (i == faviconTicks) {
+      i = 0;
   } else {
-    setTimeout(updateDateTime, 1000);
+      return;
   }
+  
+  let favicon = document.getElementById('favicon');
+  let canvas = document.createElement('canvas');
+  canvas.width = 20;
+  canvas.height = 20;
+  
+  let ctx = canvas.getContext('2d');
+  
+  let yearsGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  yearsGrd.addColorStop(0, yearsColour);
+  yearsGrd.addColorStop(1, monthsColour);
+  ctx.fillStyle = yearsGrd;
+  ctx.fillRect(0, 0, 4, 20);
+  
+  let monthsGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  monthsGrd.addColorStop(0, monthsColour);
+  monthsGrd.addColorStop(1, daysColour);
+  ctx.fillStyle = monthsGrd;
+  ctx.fillRect(4, 0, 4, 20);
+  
+  let daysGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  daysGrd.addColorStop(0, daysColour);
+  daysGrd.addColorStop(1, hoursColour);
+  ctx.fillStyle = daysGrd;
+  ctx.fillRect(8, 0, 4, 20);
+  
+  let hoursGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  hoursGrd.addColorStop(0, hoursColour);
+  hoursGrd.addColorStop(1, minutesColour);
+  ctx.fillStyle = hoursGrd;
+  ctx.fillRect(12, 0, 4, 20);
+  
+  let minutesGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  minutesGrd.addColorStop(0, minutesColour);
+  minutesGrd.addColorStop(1, secondsColour);
+  ctx.fillStyle = minutesGrd;
+  ctx.fillRect(16, 0, 4, 20);
+  
+  // leave out the seconds strip from the favicon
+  // because we're not updating it that frequently anyway
+  
+  favicon.href = canvas.toDataURL('image/png');
 }
 
 function getColour(percentage) {
@@ -94,3 +132,4 @@ function daysInMonth(date) {
 }
 
 updateDateTime();
+setInterval(updateDateTime, 100);
