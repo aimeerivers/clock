@@ -4,7 +4,7 @@ body {
 
 .block {
   position: absolute;
-  width: 16.6%;
+  width: 16.7%;
   height: 100%;
   top: 0;
   text-align: center;
@@ -12,35 +12,30 @@ body {
   font-weight: bold;
   line-height: 2em;
   color: white;
-  border: 3px solid black;
+  border-left: 8px solid black;
 }
 
 #years {
-  background-image: linear-gradient(to right, red , orange);
   left: 0;
+  border-left: 0;
 }
 
 #months {
-  background-image: linear-gradient(to right, orange , yellow);
   left: 16.666%;
 }
 
 #days {
-  background-image: linear-gradient(to right, yellow , green);
   left: 33.333%;
 }
 
 #hours {
-  background-image: linear-gradient(to right, green , blue);
   left: 50%;
 }
 
 #minutes {
-  background-image: linear-gradient(to right, blue , purple);
   left: 66.666%;
 }
 
 #seconds {
-  background-image: linear-gradient(to right, purple , red);
   left: 83.333%;
 }

@@ -23,7 +23,7 @@ function updateDateTime() {
   minutesElement.innerText = minutes;
   secondsElement.innerText = seconds;
 
-  let yearsColour = getColour((years - 1000) / 1000);
+  let yearsColour = getColour(years.toString().substring(2) / 100);
   let monthsColour = getColour(months / 12);
   let daysColour = getColour(days / 31);
   let hoursColour = getColour(hours / 24);
