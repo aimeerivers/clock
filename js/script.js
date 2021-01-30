@@ -30,12 +30,12 @@ function updateDateTime() {
   let minutesColour = getColour(minutes / 60);
   let secondsColour = getColour(seconds / 60);
 
-  yearsElement.style.backgroundImage = `linear-gradient(to right, ${yearsColour} , ${monthsColour})`;
-  monthsElement.style.backgroundImage = `linear-gradient(to right, ${monthsColour} , ${daysColour})`;
-  daysElement.style.backgroundImage = `linear-gradient(to right, ${daysColour} , ${hoursColour})`;
-  hoursElement.style.backgroundImage = `linear-gradient(to right, ${hoursColour} , ${minutesColour})`;
-  minutesElement.style.backgroundImage = `linear-gradient(to right, ${minutesColour} , ${secondsColour})`;
-  secondsElement.style.backgroundImage = `linear-gradient(to right, ${secondsColour} , ${yearsColour})`;
+  yearsElement.style.backgroundImage = `linear-gradient(to bottom, ${yearsColour} , ${monthsColour})`;
+  monthsElement.style.backgroundImage = `linear-gradient(to bottom, ${monthsColour} , ${daysColour})`;
+  daysElement.style.backgroundImage = `linear-gradient(to bottom, ${daysColour} , ${hoursColour})`;
+  hoursElement.style.backgroundImage = `linear-gradient(to bottom, ${hoursColour} , ${minutesColour})`;
+  minutesElement.style.backgroundImage = `linear-gradient(to bottom, ${minutesColour} , ${secondsColour})`;
+  secondsElement.style.backgroundImage = `linear-gradient(to bottom, ${secondsColour} , ${yearsColour})`;
 
 }
 
