@@ -23,7 +23,7 @@ function updateDateTime() {
 
   let yearsColour = getColour(years.toString().substring(2) / 100);
   let monthsColour = getColour(months / 12);
-  let daysColour = getColour(days / 31);
+  let daysColour = getColour(days / daysInMonth(date));
   let hoursColour = getColour(hours / 24);
   let minutesColour = getColour(minutes / 60);
   let secondsColour = getColour(seconds / 60);
@@ -42,7 +42,7 @@ function getColour(percentage) {
   let green = getGreen(percentage);
   let blue = getBlue(percentage);
 
-  return `rgb(${hex(red)}, ${hex(green)}, ${hex(blue)})`;
+  return `rgb(${colour255(red)}, ${colour255(green)}, ${colour255(blue)})`;
 
 }
 
@@ -67,8 +67,12 @@ function getBlue(percentage) {
   return 1;
 }
 
-function hex(percentage) {
+function colour255(percentage) {
   return percentage * 255;
+}
+
+function daysInMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 }
 
 updateDateTime();
