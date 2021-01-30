@@ -20,6 +20,10 @@
   <div class="clock">
     <div id="date"></div>
     <div id="time"></div>
+    <div id="mode">
+      <input type="radio" name="mode" id="tick" checked onClick="setSweep(false);" /><label for="tick">Tick</label>
+      <input type="radio" name="mode" id="sweep" onClick="setSweep(true);" /><label for="sweep">Sweep</label>
+    </div>
   </div>
 
   <div class="more">

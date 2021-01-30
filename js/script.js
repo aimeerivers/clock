@@ -7,6 +7,8 @@ const secondsElement = document.getElementById('seconds');
 const dateElement = document.getElementById('date');
 const timeElement = document.getElementById('time');
 
+var sweep = false;
+
 function updateDateTime() {
 
   let date = new Date();
@@ -20,10 +22,21 @@ function updateDateTime() {
   let hours = date.getHours();
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
+  
+  let monthDays = daysInMonth(date);
+  
+  if (sweep) {
+    seconds += date.getMilliseconds() / 1000;
+    minutes += seconds / 60;
+    hours += minutes / 60;
+    days += hours / 24;
+    months += days / monthDays;
+    years += months / 12;
+  }
 
   let yearsColour = getColour(years.toString().substring(2) / 100);
   let monthsColour = getColour(months / 12);
-  let daysColour = getColour(days / daysInMonth(date));
+  let daysColour = getColour(days / monthDays);
   let hoursColour = getColour(hours / 24);
   let minutesColour = getColour(minutes / 60);
   let secondsColour = getColour(seconds / 60);
@@ -34,7 +47,12 @@ function updateDateTime() {
   hoursElement.style.backgroundImage = `linear-gradient(170deg, ${hoursColour} , ${minutesColour})`;
   minutesElement.style.backgroundImage = `linear-gradient(170deg, ${minutesColour} , ${secondsColour})`;
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
-
+  
+  if (sweep) {
+    setTimeout(updateDateTime, 100);
+  } else {
+    setTimeout(updateDateTime, 1000);
+  }
 }
 
 function getColour(percentage) {
@@ -75,8 +93,8 @@ function daysInMonth(date) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 }
 
-updateDateTime();
+function setSweep(newSweep) {
+    sweep = newSweep;
+}
 
-setInterval(() => {
-  updateDateTime();
-}, 1000);
+updateDateTime();
