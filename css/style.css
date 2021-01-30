@@ -66,15 +66,3 @@ body {
 .more a {
   color: white;
 }
-
-input[type="radio"] {
-    display: none;
-}
-
-label {
-    opacity: 0.5;
-}
-
-input:checked + label {
-    opacity: 1;
-}
