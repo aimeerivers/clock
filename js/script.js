@@ -7,7 +7,7 @@ const secondsElement = document.getElementById('seconds');
 const dateElement = document.getElementById('date');
 const timeElement = document.getElementById('time');
 
-var sweep = false;
+var sweep = true;
 
 function updateDateTime() {
 
@@ -91,10 +91,6 @@ function colour255(percentage) {
 
 function daysInMonth(date) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-}
-
-function setSweep(newSweep) {
-    sweep = newSweep;
 }
 
 updateDateTime();
