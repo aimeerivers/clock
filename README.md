@@ -49,3 +49,7 @@ This is simply using the preferred settings of your device.
 ## Can I copy this?
 
 Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I offer no support and make no promises about its quality; it is just something I threw together for fun in a couple of hours. If you make changes, feel free to send me a pull request.
+
+## Credits
+
+- Huge thanks to [Thomas Preece](https://github.com/tepreece) for making the colours change smoothly!
