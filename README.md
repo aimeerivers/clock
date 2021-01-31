@@ -50,17 +50,19 @@ This is simply using the preferred settings of your device.
 
 Yes, you can, with an override parameter in the format
 
-    ?d=YYYY-MM-DD HH:MM:SS
+    ?d=YYYY-MM-DD&t=HH:MM:SS
+
+The seconds are optional.
 
 For example, the moment of the assassination of John F. Kennedy - 22nd November 1963 at 12:30 PM - is found at the following URL:
 
-[sermoa.github.io/clock/?d=1963-11-22%2012:30:00](https://sermoa.github.io/clock/?d=1963-11-22 12:30:00)
+[sermoa.github.io/clock/?d=1963-11-22&t=12:30](https://sermoa.github.io/clock/?d=1963-11-22&t=12:30)
 
 ![Assassination of JFK](images/assassination-of-jfk.png)
 
 Another famous date is the Armistice agreement marking the end of the First World War - the 11th hour of the 11th day of the 11th month, 1918. This can be seen at the following URL:
 
-[sermoa.github.io/clock/?d=1918-11-11%2011:00:00](https://sermoa.github.io/clock/?d=1918-11-11 11:00:00)
+[sermoa.github.io/clock/?d=1918-11-11&t=11:00](https://sermoa.github.io/clock/?d=1918-11-11&t=11:00)
 
 ![Armistice agreement](images/armistice-agreement.png)
 

@@ -11,6 +11,7 @@ const favicon = document.getElementById('favicon');
 // Override date/time
 const params = new URLSearchParams(window.location.search);
 const dateOverride = params.get("d");
+const timeOverride = params.get("t");
 
 // don't update favicon on every tick, because it sometimes flashes when it's changed
 // every 50 ticks = every 5 seconds
@@ -22,7 +23,8 @@ var i = faviconTicks - 2;
 
 function updateDateTime() {
   let date;
-  if(dateOverride) { date = new Date(dateOverride); }
+  if(dateOverride && timeOverride) { date = new Date(dateOverride + ' ' + timeOverride); }
+  else if(dateOverride) { date = new Date(dateOverride); }
   else { date = new Date(); }
   let monthDays = daysInMonth(date);
 
