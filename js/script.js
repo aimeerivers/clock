@@ -43,45 +43,45 @@ function updateDateTime() {
   hoursElement.style.backgroundImage = `linear-gradient(170deg, ${hoursColour} , ${minutesColour})`;
   minutesElement.style.backgroundImage = `linear-gradient(170deg, ${minutesColour} , ${secondsColour})`;
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
-  
+
   i++;
   if((i % faviconTicks) > 0) { return; }
   
   let canvas = document.createElement('canvas');
-  canvas.width = 20;
-  canvas.height = 20;
+  canvas.width = 32;
+  canvas.height = 32;
   
   let ctx = canvas.getContext('2d');
   
-  let yearsGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  let yearsGrd = ctx.createLinearGradient(0, 0, 0, 32);
   yearsGrd.addColorStop(0, yearsColour);
   yearsGrd.addColorStop(1, monthsColour);
   ctx.fillStyle = yearsGrd;
-  ctx.fillRect(0, 0, 4, 20);
+  ctx.fillRect(0, 0, 5, 32);
   
-  let monthsGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  let monthsGrd = ctx.createLinearGradient(0, 0, 0, 32);
   monthsGrd.addColorStop(0, monthsColour);
   monthsGrd.addColorStop(1, daysColour);
   ctx.fillStyle = monthsGrd;
-  ctx.fillRect(4, 0, 4, 20);
+  ctx.fillRect(5, 0, 5, 32);
   
-  let daysGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  let daysGrd = ctx.createLinearGradient(0, 0, 0, 32);
   daysGrd.addColorStop(0, daysColour);
   daysGrd.addColorStop(1, hoursColour);
   ctx.fillStyle = daysGrd;
-  ctx.fillRect(8, 0, 4, 20);
+  ctx.fillRect(10, 0, 6, 32);
   
-  let hoursGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  let hoursGrd = ctx.createLinearGradient(0, 0, 0, 32);
   hoursGrd.addColorStop(0, hoursColour);
   hoursGrd.addColorStop(1, minutesColour);
   ctx.fillStyle = hoursGrd;
-  ctx.fillRect(12, 0, 4, 20);
+  ctx.fillRect(16, 0, 6, 32);
   
-  let minutesGrd = ctx.createLinearGradient(0, 0, 0, 24);
+  let minutesGrd = ctx.createLinearGradient(0, 0, 0, 32);
   minutesGrd.addColorStop(0, minutesColour);
   minutesGrd.addColorStop(1, secondsColour);
   ctx.fillStyle = minutesGrd;
-  ctx.fillRect(16, 0, 4, 20);
+  ctx.fillRect(22, 0, 5, 32);
   
   // leave out the seconds strip from the favicon
   // because we're not updating it that frequently anyway
