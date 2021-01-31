@@ -22,11 +22,11 @@ function updateDateTime() {
   dateElement.innerText = date.toLocaleDateString();
   timeElement.innerText = date.toLocaleTimeString();
 
-  let seconds = date.getSeconds() + date.getMilliseconds() / 1000;
-  let minutes = date.getMinutes() + seconds / 60;
-  let hours = date.getHours() + minutes / 60;
-  let days = date.getDate() + hours / 24;
-  let months = date.getMonth() + 1  + days / monthDays;
+  let seconds = date.getSeconds() + (date.getMilliseconds() / 1000);
+  let minutes = date.getMinutes() + (seconds / 60);
+  let hours = date.getHours() + (minutes / 60);
+  let days = (date.getDate() - 1) + (hours / 24);
+  let months = (date.getMonth() + 0)  + (days / monthDays);
   let years = date.getFullYear() + months / 12;
 
   let yearsColour = getColour(years.toString().substring(2) / 100);
