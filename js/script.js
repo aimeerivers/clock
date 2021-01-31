@@ -83,8 +83,11 @@ function updateDateTime() {
   ctx.fillStyle = minutesGrd;
   ctx.fillRect(22, 0, 5, 32);
   
-  // leave out the seconds strip from the favicon
-  // because we're not updating it that frequently anyway
+  let secondsGrd = ctx.createLinearGradient(0, 0, 0, 32);
+  secondsGrd.addColorStop(0, secondsColour);
+  secondsGrd.addColorStop(1, yearsColour);
+  ctx.fillStyle = secondsGrd;
+  ctx.fillRect(27, 0, 5, 32);
   
   favicon.href = canvas.toDataURL('image/png');
 }
