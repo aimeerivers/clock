@@ -53,3 +53,4 @@ Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I
 ## Credits
 
 - Huge thanks to [Thomas Preece](https://github.com/tepreece) for making the colours change smoothly!
+- Also a massive thank you to [Thomas Preece](https://github.com/tepreece) for the brilliant techniqe of a dynamically updating favicon!
