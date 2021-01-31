@@ -4,7 +4,7 @@ See the clock in action at [sermoa.github.io/clock](https://sermoa.github.io/clo
 
 This clock changes colours based on the current date and time. For no reason other than to look pretty! With every second that ticks by, the clock produces a unique wall of colour that will not be repeated again for a century.
 
-![An example of the clock](example-clock.png)
+![An example of the clock](images/example-clock.png)
 
 ## What exactly does it do?
 
@@ -18,13 +18,13 @@ There is no real reason for this; it was chosen quite arbitrarily just because i
 
 The colours map to a fully saturated colour wheel of hues of light, where 0 and 100 both mean red (`#FF0000`), 33% is green (`#00FF00`) and 66% is blue (`#0000FF`).
 
-![Colour wheel](colour-wheel.png)
+![Colour wheel](images/colour-wheel.png)
 
 The opposite of red in this colour wheel is cyan (`#00FFFF`) which is what we see at 50%.
 
 This means that at precisely 12:30:30 on the 15th June 2050 all the bars will be coloured exactly the same colour - cyan.
 
-![Cyan time](cyan-time.png)
+![Cyan time](images/cyan-time.png)
 
 ## How does it know the date and time?
 
@@ -56,13 +56,13 @@ For example, the moment of the assassination of John F. Kennedy - 22nd November 
 
 [sermoa.github.io/clock/?d=1963-11-22@12:30:00](https://sermoa.github.io/clock/?d=1963-11-22@12:30:00)
 
-![Assassination of JFK](assassination-of-jfk.png)
+![Assassination of JFK](images/assassination-of-jfk.png)
 
 Another famous date is the Armistice agreement marking the end of the First World War - the 11th hour of the 11th day of the 11th month, 1918. This can be seen at the following URL:
 
 [sermoa.github.io/clock/?d=1918-11-11@11:00:00](https://sermoa.github.io/clock/?d=1918-11-11@11:00:00)
 
-![Armistice agreement](armistice-agreement.png)
+![Armistice agreement](images/armistice-agreement.png)
 
 If you see "Invalid Date" and white bars, it probably means you got the format wrong. Check and try again.
 
