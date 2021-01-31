@@ -6,6 +6,7 @@ const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 const dateElement = document.getElementById('date');
 const timeElement = document.getElementById('time');
+const favicon = document.getElementById('favicon');
 
 // don't update favicon on every tick, because it sometimes flashes when it's changed
 // every 50 ticks = every 5 seconds
@@ -44,13 +45,8 @@ function updateDateTime() {
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
   
   i++;
-  if (i == faviconTicks) {
-      i = 0;
-  } else {
-      return;
-  }
+  if((i % faviconTicks) > 0) { return; }
   
-  let favicon = document.getElementById('favicon');
   let canvas = document.createElement('canvas');
   canvas.width = 20;
   canvas.height = 20;
