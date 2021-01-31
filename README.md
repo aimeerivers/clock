@@ -46,6 +46,26 @@ Whilst someone in the USA would probably see it like this:
 
 This is simply using the preferred settings of your device.
 
+## Can I set the clock to a specific date and time?
+
+Yes, you can, with an override parameter in the format
+
+    ?d=YYYY-MM-DD@HH:MM:SS
+
+For example, the moment of the assassination of John F. Kennedy - 22nd November 1963 @ 12:30 PM - is found at the following URL:
+
+[sermoa.github.io/clock/?d=1963-11-22@12:30:00](https://sermoa.github.io/clock/?d=1963-11-22@12:30:00)
+
+![Assassination of JFK](assassination-of-jfk.png)
+
+Another famous date is the Armistice agreement marking the end of the First World War - the 11th hour of the 11th day of the 11th month, 1918. This can be seen at the following URL:
+
+[sermoa.github.io/clock/?d=1918-11-11@11:00:00](https://sermoa.github.io/clock/?d=1918-11-11@11:00:00)
+
+![Armistice agreement](armistice-agreement.png)
+
+If you see "Invalid Date" and white bars, it probably means you got the format wrong. Check and try again.
+
 ## Can I copy this?
 
 Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I offer no support and make no promises about its quality; it is just something I threw together for fun in a couple of hours. If you make changes, feel free to send me a pull request.
