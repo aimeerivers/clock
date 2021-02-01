@@ -19,9 +19,7 @@ const calloutUrl = params.get("callout");
 const faviconTicks = 50;
 const calloutTicks = 20;
 
-// start counting from 2 away, because Firefox won't update the icon from the
-// one that loads with the page on the very first tick
-var i = faviconTicks - 2;
+var i = 0;
 
 function updateDateTime() {
   let date;
@@ -54,9 +52,9 @@ function updateDateTime() {
   minutesElement.style.backgroundImage = `linear-gradient(170deg, ${minutesColour} , ${secondsColour})`;
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
 
-  i++;
   if((i % faviconTicks) == 0) { updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
   if(calloutUrl && (i % calloutTicks) == 0) { callout(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
+  i++;
 }
 
 function callout(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour) {
