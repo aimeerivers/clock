@@ -53,8 +53,10 @@ function updateDateTime() {
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
 
   i++;
-  if((i % faviconTicks) > 0) { return; }
-  
+  if((i % faviconTicks) == 0) { updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
+}
+
+function updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour) {
   let canvas = document.createElement('canvas');
   canvas.width = 32;
   canvas.height = 32;
