@@ -68,6 +68,29 @@ Another famous date is the Armistice agreement marking the end of the First Worl
 
 If you see "Invalid Date" and white bars, it either means you got the format wrong, or it just isn't supported on your device. Sorry. Try a different browser.
 
+## Callout to another URL
+
+You may want to callout to another URL, which can be particularly fun if you have smart lights you want to control with colours of the clock.
+
+Send a `callout` parameter with the URL you wish to call, for example:
+
+[sermoa.github.io/clock/?callout=http://localhost:9000/clock](https://sermoa.github.io/clock/?callout=http://localhost:9000/clock)
+
+This URL must be accessible from your network and accept cross-origin calls.
+
+Every 2 seconds, the clock will send a `PUT` request to the URL with data about the colours, which will look something like this:
+
+    {
+      "years": "rgb(187, 255, 0)",
+      "months": "rgb(255, 132, 0)",
+      "days": "rgb(255, 55, 0)",
+      "hours": "rgb(255, 15, 0)",
+      "minutes": "rgb(159, 255, 0)",
+      "seconds": "rgb(125, 0, 255)"
+    }
+
+What you do with this data is entirely up to you. I have it updating my Philips Hue lights. At some point I might share the code for a web server that will help you to do this.
+
 ## Can I copy this?
 
 Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I offer no support and make no promises about its quality; it is just something I threw together for fun in a couple of hours. If you make changes, feel free to send me a pull request.
