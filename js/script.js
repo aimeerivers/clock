@@ -12,10 +12,12 @@ const favicon = document.getElementById('favicon');
 const params = new URLSearchParams(window.location.search);
 const dateOverride = params.get("d");
 const timeOverride = params.get("t");
+const calloutUrl = params.get("callout");
 
 // don't update favicon on every tick, because it sometimes flashes when it's changed
 // every 50 ticks = every 5 seconds
 const faviconTicks = 50;
+const calloutTicks = 20;
 
 // start counting from 2 away, because Firefox won't update the icon from the
 // one that loads with the page on the very first tick
@@ -54,6 +56,21 @@ function updateDateTime() {
 
   i++;
   if((i % faviconTicks) == 0) { updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
+  if(calloutUrl && (i % calloutTicks) == 0) { callout(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
+}
+
+function callout(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour) {
+  var calloutRequest = new XMLHttpRequest();
+  calloutRequest.open("PUT", calloutUrl, true);
+  calloutRequest.setRequestHeader("Content-Type", "application/json");
+  calloutRequest.send(JSON.stringify({
+    "years": yearsColour,
+    "months": monthsColour,
+    "days": daysColour,
+    "hours": hoursColour,
+    "minutes": minutesColour,
+    "seconds": secondsColour
+  }));
 }
 
 function updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour) {
