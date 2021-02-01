@@ -28,7 +28,7 @@ function getBlue(percentage) {
 }
 
 function colour255(percentage) {
-  return percentage * 255;
+  return Math.round(percentage * 255);
 }
 
 function daysInMonth(date) {
