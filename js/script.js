@@ -34,7 +34,7 @@ const calloutUrl = params.get("callout");
 const faviconTicks = 50;
 const calloutTicks = 20;
 
-var i = 0;
+let ticker = 0;
 
 function updateDateTime() {
   let date;
@@ -81,9 +81,10 @@ function updateDateTime() {
     updateDigitalClock(date);
   }
 
-  if((i % faviconTicks) == 0) { updateFavicon(colours); }
-  if(calloutUrl && (i % calloutTicks) == 0) { callout(times, percentages, colours); }
-  i++;
+  if((ticker % faviconTicks) == 0) updateFavicon(colours);
+  if(calloutUrl && (ticker % calloutTicks) == 0) callout(times, percentages, colours);
+  ticker++;
+  if(ticker == faviconTicks * calloutTicks) ticker = 0;
 }
 
 function callout(times, percentages, colours) {
