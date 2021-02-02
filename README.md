@@ -140,6 +140,8 @@ Every 2 seconds, the clock will send a `PUT` request to the URL with data about 
 
 What you do with this data is entirely up to you. I have it updating my Philips Hue lights. At some point I might share the code for a web server that will help you to do this.
 
+![Demo with Philips Hue](images/demo-with-philips-hue.jpg)
+
 ## Can I copy this?
 
 Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I offer no support and make no promises about its quality; it is just something I threw together for fun in a couple of hours. If you make changes, feel free to send me a pull request.
