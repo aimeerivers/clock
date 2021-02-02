@@ -68,6 +68,14 @@ Another famous date is the Armistice agreement marking the end of the First Worl
 
 If you see "Invalid Date" and white bars, it either means you got the format wrong, or it just isn't supported on your device. Sorry. Try a different browser.
 
+## When will the colours be a rainbow?
+
+I'm so glad you asked! I wondered this too! I think the 6th February 2098 at 06:34:44 will make a rather nice rainbow!
+
+[sermoa.github.io/clock/?d=6-Feb-2098&t=06:34:44](https://sermoa.github.io/clock/?d=6-Feb-2098&t=06:34:44)
+
+![Rainbow time](images/rainbow-time.png)
+
 ## Callout to another URL
 
 You may want to callout to another URL, which can be particularly fun if you have smart lights you want to control with colours of the clock.
