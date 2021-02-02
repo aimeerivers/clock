@@ -41,7 +41,7 @@
 .minute-hand {
   position: absolute;
   z-index: 6;
-  width: 6px;
+  width: 7px;
   height: 100px;
   background: #666;
   top: 46px;
@@ -55,7 +55,7 @@
 .second-hand {
   position: absolute;
   z-index: 7;
-  width: 4px;
+  width: 2px;
   height: 120px;
   background: gold;
   top: 26px;
