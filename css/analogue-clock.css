@@ -1,5 +1,5 @@
 .analogue-clock {
-  background: #EEE;
+  background: #FFF;
   width: 301px;
   height: 301px;
   margin: 8% auto 0;
@@ -13,7 +13,8 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #888;
+  background: #fff;
+  border: 1px solid #AAA;
   top: 0;
   left: 0;
   right: 0;
@@ -24,10 +25,14 @@
   box-shadow: 0 2px 4px -1px black;
 }
 
+.hour-hand, .minute-hand, .second-hand {
+  border: 1px solid #AAA;
+}
+
 .hour-hand {
   position: absolute;
   z-index: 5;
-  width: 7px;
+  width: 6px;
   height: 65px;
   background: #333;
   top: 79px;
@@ -41,7 +46,7 @@
 .minute-hand {
   position: absolute;
   z-index: 6;
-  width: 7px;
+  width: 5px;
   height: 100px;
   background: #666;
   top: 46px;
