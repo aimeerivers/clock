@@ -8,10 +8,25 @@ const dateElement = document.getElementById('date');
 const timeElement = document.getElementById('time');
 const favicon = document.getElementById('favicon');
 
-// Override date/time
+var dialLines = document.getElementsByClassName('diallines');
+var clockEl = document.getElementById('analogue');
+
 const params = new URLSearchParams(window.location.search);
+
+// Clock style
+const clockStyle = params.get("style");
+if(clockStyle == "analogue") {
+  document.getElementById('analogue').style.display = 'block';
+} else {
+  document.getElementById('digital').style.display = 'block';
+}
+
+
+// Override date/time
 const dateOverride = params.get("d");
 const timeOverride = params.get("t");
+
+// Callout URL
 const calloutUrl = params.get("callout");
 
 // don't update favicon on every tick, because it sometimes flashes when it's changed
@@ -28,9 +43,6 @@ function updateDateTime() {
   else { date = new Date(); }
   let monthDays = daysInMonth(date);
 
-  dateElement.innerText = date.toLocaleDateString();
-  timeElement.innerText = date.toLocaleTimeString();
-
   let seconds = date.getSeconds() + (date.getMilliseconds() / 1000);
   let minutes = date.getMinutes() + (seconds / 60);
   let hours = date.getHours() + (minutes / 60);
@@ -43,7 +55,7 @@ function updateDateTime() {
     years.toString().substring(2) / 100,
     months / 12,
     days / monthDays,
-    hours / 24,
+    (hours > 12 ? ((hours - 12) / 12) : (hours / 12)),
     minutes / 60,
     seconds / 60
   ];
@@ -62,6 +74,12 @@ function updateDateTime() {
   hoursElement.style.backgroundImage = `linear-gradient(170deg, ${colours[3]} , ${colours[4]})`;
   minutesElement.style.backgroundImage = `linear-gradient(170deg, ${colours[4]} , ${colours[5]})`;
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[5]} , ${colours[0]})`;
+
+  if(clockStyle == "analogue") {
+    updateAnalogueClock(date, colours);
+  } else {
+    updateDigitalClock(date);
+  }
 
   if((i % faviconTicks) == 0) { updateFavicon(colours); }
   if(calloutUrl && (i % calloutTicks) == 0) { callout(times, percentages, colours); }
@@ -163,6 +181,83 @@ function colour255(percentage) {
 
 function daysInMonth(date) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+}
+
+function updateDigitalClock(date) {
+  dateElement.innerText = date.toLocaleDateString();
+  timeElement.innerText = date.toLocaleTimeString();
+}
+
+for (var i = 1; i < 60; i++) {
+  clockEl.innerHTML += "<div class='diallines'></div>";
+  dialLines[i].style.transform = "rotate(" + 6 * i + "deg)";
+  dialLines[i].style.backgroundColor = getColour(i / 60);
+}
+
+function updateAnalogueClock(d, colours) {
+  var weekday = new Array(7),
+    months = new Array(12),
+    h = d.getHours(),
+    m = d.getMinutes(),
+    s = d.getSeconds(),
+    date = d.getDate(),
+    month = d.getMonth(),
+    year = d.getFullYear(),
+          
+    hDeg = h * 30 + m * (360/720),
+    mDeg = m * 6 + s * (360/3600),
+    sDeg = s * 6,
+    
+    hEl = document.querySelector('.hour-hand'),
+    mEl = document.querySelector('.minute-hand'),
+    sEl = document.querySelector('.second-hand'),
+    infoDateEl = document.querySelector('#info-date'),
+    infoMonthEl = document.querySelector('#info-month'),
+    infoYearEl = document.querySelector('#info-year'),
+    dayEl = document.querySelector('.day');
+
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+
+  months[0] = "Jan";
+  months[1] = "Feb";
+  months[2] = "Mar";
+  months[3] = "Apr";
+  months[4] = "May";
+  months[5] = "Jun";
+  months[6] = "Jul";
+  months[7] = "Aug";
+  months[8] = "Sep";
+  months[9] = "Oct";
+  months[10] = "Nov";
+  months[11] = "Dec";
+
+  var day = weekday[d.getDay()];
+  var monthname = months[month];
+  
+  if(month < 9) {
+    month = "0" + month;
+  }
+  
+  hEl.style.transform = "rotate("+hDeg+"deg)";
+  mEl.style.transform = "rotate("+mDeg+"deg)";
+  sEl.style.transform = "rotate("+sDeg+"deg)";
+  infoDateEl.innerText = date;
+  infoDateEl.style.color = colours[2];
+  infoMonthEl.innerText = monthname;
+  infoMonthEl.style.color = colours[1];
+  infoYearEl.innerText = year;
+  infoYearEl.style.color = colours[0];
+  dayEl.innerHTML = day;
+
+  hEl.style.backgroundColor = colours[3];
+  mEl.style.backgroundColor = colours[4];
+  sEl.style.backgroundColor = colours[5];
 }
 
 updateDateTime();
