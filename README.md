@@ -86,15 +86,39 @@ Send a `callout` parameter with the URL you wish to call, for example:
 
 This URL must be accessible from your network and accept cross-origin calls.
 
-Every 2 seconds, the clock will send a `PUT` request to the URL with data about the colours, which will look something like this:
+Every 2 seconds, the clock will send a `PUT` request to the URL with data about the time and colours, which will look something like this:
 
     {
-      "years": "rgb(187, 255, 0)",
-      "months": "rgb(255, 132, 0)",
-      "days": "rgb(255, 55, 0)",
-      "hours": "rgb(255, 15, 0)",
-      "minutes": "rgb(159, 255, 0)",
-      "seconds": "rgb(125, 0, 255)"
+      "years": {
+        "value": 2021.080249278176,
+        "percentage": 0.21080249278176003,
+        "rgb": "rgb(187, 255, 0)"
+      },
+      "months": {
+        "value": 0.9629913381123059,
+        "percentage": 0.0802492781760255,
+        "rgb": "rgb(255, 123, 0)"
+      },
+      "days": {
+        "value": 29.85273148148148,
+        "percentage": 0.9629913381123059,
+        "rgb": "rgb(255, 0, 57)"
+      },
+      "hours": {
+        "value": 20.465555555555557,
+        "percentage": 0.8527314814814816,
+        "rgb": "rgb(255, 0, 225)"
+      },
+      "minutes": {
+        "value": 27.933333333333334,
+        "percentage": 0.46555555555555556,
+        "rgb": "rgb(0, 255, 202)"
+      },
+      "seconds": {
+        "value": 56,
+        "percentage": 0.9333333333333333,
+        "rgb": "rgb(255, 0, 102)"
+      }
     }
 
 What you do with this data is entirely up to you. I have it updating my Philips Hue lights. At some point I might share the code for a web server that will help you to do this.

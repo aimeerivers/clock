@@ -38,40 +38,51 @@ function updateDateTime() {
   let months = (date.getMonth() + 0)  + (days / monthDays);
   let years = date.getFullYear() + months / 12;
 
-  let yearsColour = getColour(years.toString().substring(2) / 100);
-  let monthsColour = getColour(months / 12);
-  let daysColour = getColour(days / monthDays);
-  let hoursColour = getColour(hours / 24);
-  let minutesColour = getColour(minutes / 60);
-  let secondsColour = getColour(seconds / 60);
+  let times = [years, months, days, hours, minutes, seconds];
+  let percentages = [
+    years.toString().substring(2) / 100,
+    months / 12,
+    days / monthDays,
+    hours / 24,
+    minutes / 60,
+    seconds / 60
+  ];
+  let colours = [
+    getColour(percentages[0]),
+    getColour(percentages[1]),
+    getColour(percentages[2]),
+    getColour(percentages[3]),
+    getColour(percentages[4]),
+    getColour(percentages[5]),
+  ];
 
-  yearsElement.style.backgroundImage = `linear-gradient(170deg, ${yearsColour} , ${monthsColour})`;
-  monthsElement.style.backgroundImage = `linear-gradient(170deg, ${monthsColour} , ${daysColour})`;
-  daysElement.style.backgroundImage = `linear-gradient(170deg, ${daysColour} , ${hoursColour})`;
-  hoursElement.style.backgroundImage = `linear-gradient(170deg, ${hoursColour} , ${minutesColour})`;
-  minutesElement.style.backgroundImage = `linear-gradient(170deg, ${minutesColour} , ${secondsColour})`;
-  secondsElement.style.backgroundImage = `linear-gradient(170deg, ${secondsColour} , ${yearsColour})`;
+  yearsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[0]} , ${colours[1]})`;
+  monthsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[1]} , ${colours[2]})`;
+  daysElement.style.backgroundImage = `linear-gradient(170deg, ${colours[2]} , ${colours[3]})`;
+  hoursElement.style.backgroundImage = `linear-gradient(170deg, ${colours[3]} , ${colours[4]})`;
+  minutesElement.style.backgroundImage = `linear-gradient(170deg, ${colours[4]} , ${colours[5]})`;
+  secondsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[5]} , ${colours[0]})`;
 
-  if((i % faviconTicks) == 0) { updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
-  if(calloutUrl && (i % calloutTicks) == 0) { callout(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour); }
+  if((i % faviconTicks) == 0) { updateFavicon(colours); }
+  if(calloutUrl && (i % calloutTicks) == 0) { callout(times, percentages, colours); }
   i++;
 }
 
-function callout(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour) {
+function callout(times, percentages, colours) {
   var calloutRequest = new XMLHttpRequest();
   calloutRequest.open("PUT", calloutUrl, true);
   calloutRequest.setRequestHeader("Content-Type", "application/json");
   calloutRequest.send(JSON.stringify({
-    "years": yearsColour,
-    "months": monthsColour,
-    "days": daysColour,
-    "hours": hoursColour,
-    "minutes": minutesColour,
-    "seconds": secondsColour
+    "years": {value: times[0], percentage: percentages[0], rgb: colours[0]},
+    "months": {value: times[1], percentage: percentages[1], rgb: colours[1]},
+    "days": {value: times[2], percentage: percentages[2], rgb: colours[2]},
+    "hours": {value: times[3], percentage: percentages[3], rgb: colours[3]},
+    "minutes": {value: times[4], percentage: percentages[4], rgb: colours[4]},
+    "seconds": {value: times[5], percentage: percentages[5], rgb: colours[5]},
   }));
 }
 
-function updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minutesColour, secondsColour) {
+function updateFavicon(colours) {
   let canvas = document.createElement('canvas');
   canvas.width = 32;
   canvas.height = 32;
@@ -79,38 +90,38 @@ function updateFavicon(yearsColour, monthsColour, daysColour, hoursColour, minut
   let ctx = canvas.getContext('2d');
   
   let yearsGrd = ctx.createLinearGradient(0, 0, 0, 32);
-  yearsGrd.addColorStop(0, yearsColour);
-  yearsGrd.addColorStop(1, monthsColour);
+  yearsGrd.addColorStop(0, colours[0]);
+  yearsGrd.addColorStop(1, colours[1]);
   ctx.fillStyle = yearsGrd;
   ctx.fillRect(0, 0, 5, 32);
   
   let monthsGrd = ctx.createLinearGradient(0, 0, 0, 32);
-  monthsGrd.addColorStop(0, monthsColour);
-  monthsGrd.addColorStop(1, daysColour);
+  monthsGrd.addColorStop(0, colours[1]);
+  monthsGrd.addColorStop(1, colours[2]);
   ctx.fillStyle = monthsGrd;
   ctx.fillRect(5, 0, 5, 32);
   
   let daysGrd = ctx.createLinearGradient(0, 0, 0, 32);
-  daysGrd.addColorStop(0, daysColour);
-  daysGrd.addColorStop(1, hoursColour);
+  daysGrd.addColorStop(0, colours[2]);
+  daysGrd.addColorStop(1, colours[3]);
   ctx.fillStyle = daysGrd;
   ctx.fillRect(10, 0, 6, 32);
   
   let hoursGrd = ctx.createLinearGradient(0, 0, 0, 32);
-  hoursGrd.addColorStop(0, hoursColour);
-  hoursGrd.addColorStop(1, minutesColour);
+  hoursGrd.addColorStop(0, colours[3]);
+  hoursGrd.addColorStop(1, colours[4]);
   ctx.fillStyle = hoursGrd;
   ctx.fillRect(16, 0, 6, 32);
   
   let minutesGrd = ctx.createLinearGradient(0, 0, 0, 32);
-  minutesGrd.addColorStop(0, minutesColour);
-  minutesGrd.addColorStop(1, secondsColour);
+  minutesGrd.addColorStop(0, colours[4]);
+  minutesGrd.addColorStop(1, colours[5]);
   ctx.fillStyle = minutesGrd;
   ctx.fillRect(22, 0, 5, 32);
   
   let secondsGrd = ctx.createLinearGradient(0, 0, 0, 32);
-  secondsGrd.addColorStop(0, secondsColour);
-  secondsGrd.addColorStop(1, yearsColour);
+  secondsGrd.addColorStop(0, colours[5]);
+  secondsGrd.addColorStop(1, colours[0]);
   ctx.fillStyle = secondsGrd;
   ctx.fillRect(27, 0, 5, 32);
   
