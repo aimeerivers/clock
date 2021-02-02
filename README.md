@@ -2,7 +2,7 @@
 
 See the clock in action at [sermoa.github.io/clock](https://sermoa.github.io/clock/)
 
-This clock changes colours based on the current date and time. For no reason other than to look pretty! With every second that ticks by, the clock produces a unique wall of colour that will not be repeated again for a century.
+This clock changes colours based on the current date and time. For no reason other than to look pretty! With every second that ticks by, the clock produces a unique wall of colour.
 
 ![An example of the clock](images/example-clock.png)
 
@@ -20,11 +20,9 @@ The colours map to a fully saturated colour wheel of hues of light, where 0 and 
 
 ![Colour wheel](images/colour-wheel.png)
 
-The opposite of red in this colour wheel is cyan (`#00FFFF`) which is what we see at 50%.
+I think the only time all the bars will be exactly the same colour will be at the turn of the next century, 1st January 2100, when everything will be red.
 
-This means that at precisely 12:30:30 on the 15th June 2050 all the bars will be coloured exactly the same colour - cyan.
-
-![Cyan time](images/cyan-time.png)
+![Red time](images/red-time.png)
 
 ## How does it know the date and time?
 
@@ -34,15 +32,18 @@ The date and time are localised to you, and are taken from your device. All the 
 
 The date and time are displayed on the screen in your preferred format according to your device. For me in Denmark, I see the date and time like this:
 
-    30.1.2021 20.27.56
+    30.1.2021
+    20.27.56
 
 Someone in the UK would likely see the same date and time displayed like this:
 
-    30/01/2021 20:27:56
+    30/01/2021
+    20:27:56
 
 Whilst someone in the USA would probably see it like this:
 
-    1/30/2021 8:27:56 PM
+    1/30/2021
+    8:27:56 PM
 
 This is simply using the preferred settings of your device.
 
@@ -56,7 +57,7 @@ In the time format, the seconds are optional.
 
 For example, the moment of the assassination of John F. Kennedy - 22nd November 1963 at 12:30 PM - is found at the following URL:
 
-[sermoa.github.io/clock/?d=22-Nov-1693&t=12:30](https://sermoa.github.io/clock/?d=22-Nov-1693&t=12:30)
+[sermoa.github.io/clock/?d=22-Nov-1963&t=12:30](https://sermoa.github.io/clock/?d=22-Nov-1963&t=12:30)
 
 ![Assassination of JFK](images/assassination-of-jfk.png)
 
@@ -70,9 +71,9 @@ If you see "Invalid Date" and white bars, it either means you got the format wro
 
 ## When will the colours be a rainbow?
 
-I'm so glad you asked! I wondered this too! I think the 6th February 2098 at 06:34:44 will make a rather nice rainbow!
+I'm so glad you asked! I wondered this too! I think the 5th February 2099 at 15:31:44 will make a rather nice rainbow!
 
-[sermoa.github.io/clock/?d=6-Feb-2098&t=06:34:44](https://sermoa.github.io/clock/?d=6-Feb-2098&t=06:34:44)
+[sermoa.github.io/clock/?d=5-Feb-2099&t=15:31:44](https://sermoa.github.io/clock/?d=5-Feb-2099&t=15:31:44)
 
 ![Rainbow time](images/rainbow-time.png)
 
@@ -106,8 +107,8 @@ Every 2 seconds, the clock will send a `PUT` request to the URL with data about 
       },
       "hours": {
         "value": 20.465555555555557,
-        "percentage": 0.8527314814814816,
-        "rgb": "rgb(255, 0, 225)"
+        "percentage": 0.7054629629629631,
+        "rgb": "rgb(59, 0, 255)"
       },
       "minutes": {
         "value": 27.933333333333334,
