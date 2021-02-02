@@ -77,6 +77,14 @@ I'm so glad you asked! I wondered this too! I think the 5th February 2099 at 15:
 
 ![Rainbow time](images/rainbow-time.png)
 
+## Can I have an analogue clock?
+
+Yes, you can! Simply add a `style=analogue` parameter. The hands will change colour to reflect their position on the colour wheel. All the other parameters will also work in conjunction with an analogue clock.
+
+[sermoa.github.io/clock/?style=analogue](https://sermoa.github.io/clock/?style=analogue)
+
+![Analogue clock](images/analogue-clock.png)
+
 ## Callout to another URL
 
 You may want to callout to another URL, which can be particularly fun if you have smart lights you want to control with colours of the clock.
@@ -132,3 +140,4 @@ Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I
 
 - Huge thanks to [Thomas Preece](https://github.com/tepreece) for making the colours change smoothly!
 - Also a massive thank you to [Thomas Preece](https://github.com/tepreece) for the brilliant techniqe of a dynamically updating favicon!
+- Thank you to Tanya-Jayne Park for requesting an analogue version of the clock.
