@@ -14,13 +14,11 @@ var clockEl = document.getElementById('analogue');
 const params = new URLSearchParams(window.location.search);
 
 // Clock style
-const clockStyle = params.get("style");
-if(clockStyle == "analogue") {
-  document.getElementById('analogue').style.display = 'block';
-} else {
-  document.getElementById('digital').style.display = 'block';
-}
+let clockStyle = params.get("style");
+if(clockStyle != "analogue" && clockStyle != "minimal") clockStyle = "digital";
 
+if(clockStyle == "analogue") document.getElementById('analogue').style.display = 'block';
+if(clockStyle == "digital") document.getElementById('digital').style.display = 'block';
 
 // Override date/time
 const dateOverride = params.get("d");
@@ -75,11 +73,8 @@ function updateDateTime() {
   minutesElement.style.backgroundImage = `linear-gradient(170deg, ${colours[4]} , ${colours[5]})`;
   secondsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[5]} , ${colours[0]})`;
 
-  if(clockStyle == "analogue") {
-    updateAnalogueClock(date, colours);
-  } else {
-    updateDigitalClock(date);
-  }
+  if(clockStyle == "analogue") updateAnalogueClock(date, colours);
+  if(clockStyle == "digital") updateDigitalClock(date);
 
   if((ticker % faviconTicks) == 0) updateFavicon(colours);
   if(calloutUrl && (ticker % calloutTicks) == 0) callout(times, percentages, colours);

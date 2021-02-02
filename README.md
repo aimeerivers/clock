@@ -85,6 +85,14 @@ Yes, you can! Simply add a `style=analogue` parameter. The hands will change col
 
 ![Analogue clock](images/analogue-clock.png)
 
+## But what if I don't want a clock at all?
+
+I got you! What you need is `style=minimal`. That'll just give you the six bars and no clock overlay at all. This looks great in fullscreen!
+
+[sermoa.github.io/clock/?style=minimal](https://sermoa.github.io/clock/?style=minimal)
+
+![Minimal mode](images/minimal-mode.png)
+
 ## Callout to another URL
 
 You may want to callout to another URL, which can be particularly fun if you have smart lights you want to control with colours of the clock.
