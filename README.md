@@ -149,3 +149,4 @@ Sure, take it, do what you want with it. It's free, open source, MIT Licensed. I
 - Huge thanks to [Thomas Preece](https://github.com/tepreece) for making the colours change smoothly!
 - Also a massive thank you to [Thomas Preece](https://github.com/tepreece) for the brilliant techniqe of a dynamically updating favicon!
 - Thank you to Tanya-Jayne Park for requesting an analogue version of the clock.
+- Credit to Vasko Petrov for the [code for the analogue clock](https://codepen.io/vaskopetrov/pen/yVEXjz).
