@@ -1,6 +1,6 @@
 # A colourful clock
 
-See the clock in action at [www.aimeerivers.com/clock](https://www.aimeerivers.com/clock/)
+See the clock in action at [aimeerivers.github.io/clock](https://aimeerivers.github.io/clock/)
 
 This clock changes colours based on the current date and time. For no reason other than to look pretty! With every second that ticks by, the clock produces a unique wall of colour.
 
@@ -57,13 +57,13 @@ In the time format, the seconds are optional.
 
 For example, the moment of the assassination of John F. Kennedy - 22nd November 1963 at 12:30 PM - is found at the following URL:
 
-[www.aimeerivers.com/clock/?d=22-Nov-1963&t=12:30](https://www.aimeerivers.com/clock/?d=22-Nov-1963&t=12:30)
+[aimeerivers.github.io/clock/?d=22-Nov-1963&t=12:30](https://aimeerivers.github.io/clock/?d=22-Nov-1963&t=12:30)
 
 ![Assassination of JFK](images/assassination-of-jfk.png)
 
 Another famous date is the Armistice agreement marking the end of the First World War - the 11th hour of the 11th day of the 11th month, 1918. This can be seen at the following URL:
 
-[www.aimeerivers.com/clock/?d=11-Nov-1918&t=11:00](https://www.aimeerivers.com/clock/?d=11-Nov-1918&t=11:00)
+[aimeerivers.github.io/clock/?d=11-Nov-1918&t=11:00](https://aimeerivers.github.io/clock/?d=11-Nov-1918&t=11:00)
 
 ![Armistice agreement](images/armistice-agreement.png)
 
@@ -73,7 +73,7 @@ If you see "Invalid Date" and white bars, it either means you got the format wro
 
 I'm so glad you asked! I wondered this too! I think the 5th February 2099 at 15:31:44 will make a rather nice rainbow!
 
-[www.aimeerivers.com/clock/?d=5-Feb-2099&t=15:31:44](https://www.aimeerivers.com/clock/?d=5-Feb-2099&t=15:31:44)
+[aimeerivers.github.io/clock/?d=5-Feb-2099&t=15:31:44](https://aimeerivers.github.io/clock/?d=5-Feb-2099&t=15:31:44)
 
 ![Rainbow time](images/rainbow-time.png)
 
@@ -81,7 +81,7 @@ I'm so glad you asked! I wondered this too! I think the 5th February 2099 at 15:
 
 Yes, you can! Simply add a `style=analogue` parameter. The hands will change colour to reflect their position on the colour wheel. All the other parameters will also work in conjunction with an analogue clock.
 
-[www.aimeerivers.com/clock/?style=analogue](https://www.aimeerivers.com/clock/?style=analogue)
+[aimeerivers.github.io/clock/?style=analogue](https://aimeerivers.github.io/clock/?style=analogue)
 
 ![Analogue clock](images/analogue-clock.png)
 
@@ -89,7 +89,7 @@ Yes, you can! Simply add a `style=analogue` parameter. The hands will change col
 
 I got you! What you need is `style=minimal`. That'll just give you the six bars and no clock overlay at all. This looks great in fullscreen!
 
-[www.aimeerivers.com/clock/?style=minimal](https://www.aimeerivers.com/clock/?style=minimal)
+[aimeerivers.github.io/clock/?style=minimal](https://aimeerivers.github.io/clock/?style=minimal)
 
 ![Minimal mode](images/minimal-mode.png)
 
@@ -97,15 +97,15 @@ I got you! What you need is `style=minimal`. That'll just give you the six bars 
 
 If you prefer, you can use a `fade` parameter to fade all the colours down to a common colour. This can be any named colour in HTML, for example white, black or pink.
 
-[www.aimeerivers.com/clock/?fade=white](https://www.aimeerivers.com/clock/?fade=white)
+[aimeerivers.github.io/clock/?fade=white](https://aimeerivers.github.io/clock/?fade=white)
 
 ![Fade to white](images/fade-white.png)
 
-[www.aimeerivers.com/clock/?fade=black](https://www.aimeerivers.com/clock/?fade=black)
+[aimeerivers.github.io/clock/?fade=black](https://aimeerivers.github.io/clock/?fade=black)
 
 ![Fade to black](images/fade-black.png)
 
-[www.aimeerivers.com/clock/?fade=pink](https://www.aimeerivers.com/clock/?fade=pink)
+[aimeerivers.github.io/clock/?fade=pink](https://aimeerivers.github.io/clock/?fade=pink)
 
 ![Fade to pink](images/fade-pink.png)
 
@@ -115,7 +115,7 @@ You may want to callout to another URL, which can be particularly fun if you hav
 
 Send a `callout` parameter with the URL you wish to call, for example:
 
-[www.aimeerivers.com/clock/?callout=http://localhost:9000/clock](https://www.aimeerivers.com/clock/?callout=http://localhost:9000/clock)
+[aimeerivers.github.io/clock/?callout=http://localhost:9000/clock](https://aimeerivers.github.io/clock/?callout=http://localhost:9000/clock)
 
 This URL must be accessible from your network and accept cross-origin calls.
 
