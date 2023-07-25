@@ -23,6 +23,7 @@ if(clockStyle == "digital") document.getElementById('digital').style.display = '
 // Override date/time
 const dateOverride = params.get("d");
 const timeOverride = params.get("t");
+const fade = params.get("fade");
 
 // Callout URL
 const calloutUrl = params.get("callout");
@@ -66,12 +67,12 @@ function updateDateTime() {
     getColour(percentages[5]),
   ];
 
-  yearsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[0]} , ${colours[1]})`;
-  monthsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[1]} , ${colours[2]})`;
-  daysElement.style.backgroundImage = `linear-gradient(170deg, ${colours[2]} , ${colours[3]})`;
-  hoursElement.style.backgroundImage = `linear-gradient(170deg, ${colours[3]} , ${colours[4]})`;
-  minutesElement.style.backgroundImage = `linear-gradient(170deg, ${colours[4]} , ${colours[5]})`;
-  secondsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[5]} , ${colours[0]})`;
+  yearsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[0]} , ${fade || colours[1]})`;
+  monthsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[1]} , ${fade || colours[2]})`;
+  daysElement.style.backgroundImage = `linear-gradient(170deg, ${colours[2]} , ${fade || colours[3]})`;
+  hoursElement.style.backgroundImage = `linear-gradient(170deg, ${colours[3]} , ${fade || colours[4]})`;
+  minutesElement.style.backgroundImage = `linear-gradient(170deg, ${colours[4]} , ${fade || colours[5]})`;
+  secondsElement.style.backgroundImage = `linear-gradient(170deg, ${colours[5]} , ${fade || colours[0]})`;
 
   if(clockStyle == "analogue") updateAnalogueClock(date, colours);
   if(clockStyle == "digital") updateDigitalClock(date);
