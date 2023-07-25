@@ -93,6 +93,22 @@ I got you! What you need is `style=minimal`. That'll just give you the six bars 
 
 ![Minimal mode](images/minimal-mode.png)
 
+## Fade to a different colour
+
+If you prefer, you can use a `fade` parameter to fade all the colours down to a common colour. This can be any named colour in HTML, for example white, black or pink.
+
+[sermoa.github.io/clock/?fade=white](https://sermoa.github.io/clock/?fade=white)
+
+![Fade to white](images/fade-white.png)
+
+[sermoa.github.io/clock/?fade=black](https://sermoa.github.io/clock/?fade=black)
+
+![Fade to black](images/fade-black.png)
+
+[sermoa.github.io/clock/?fade=pink](https://sermoa.github.io/clock/?fade=pink)
+
+![Fade to pink](images/fade-pink.png)
+
 ## Callout to another URL
 
 You may want to callout to another URL, which can be particularly fun if you have smart lights you want to control with colours of the clock.
